@@ -14,9 +14,9 @@ public class Player : MonoBehaviour
     float moveSpeed = 6f;
 
     float gravity;
-    float maxJumpVelocity;
+    public float maxJumpVelocity;
     float minJumpVelocity;
-    Vector3 velocity;
+    public Vector3 velocity;
     float velocityXSmoothing;
 
     Controller2D controller;

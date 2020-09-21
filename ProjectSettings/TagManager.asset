@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Through
   - Checkpoint
+  - Gates
+  - HollowBlock
+  - BounceBlock
+  - TempBlock
   layers:
   - Default
   - TransparentFX

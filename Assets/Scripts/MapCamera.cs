@@ -35,11 +35,12 @@ public class MapCamera : MonoBehaviour
         transform.position = (Vector3)focusPosition + Vector3.forward * -10;
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = new Color(1, 0, 0, 0.5f);
-        Gizmos.DrawCube(mapFocusArea.centreAreaToScreen, focusAreaSize);
-    }
+    // Use to show where the camera is positioned.
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = new Color(1, 0, 0, 0.5f);
+    //    Gizmos.DrawCube(mapFocusArea.centreAreaToScreen, focusAreaSize);
+    //}
 
     struct FocusArea
     {

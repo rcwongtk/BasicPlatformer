@@ -24,6 +24,12 @@ public class Checkpoint : MonoBehaviour
 
             Debug.Log("Checkpoint Entered");
         }
+
+        foreach(GameObject gate in mainCamera.GetComponent<WorldObjectLists>().levelGates)
+        {
+            gate.GetComponent<MeshRenderer>().enabled = true;
+            gate.GetComponent<BoxCollider2D>().enabled = true;
+        }
     }
 
 
