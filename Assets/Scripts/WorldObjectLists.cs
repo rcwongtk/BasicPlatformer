@@ -9,6 +9,8 @@ public class WorldObjectLists : MonoBehaviour
     public List<GameObject> hollowBlocks = new List<GameObject>();
     public List<GameObject> bounceBlocks = new List<GameObject>();
     public List<GameObject> tempBlocks = new List<GameObject>();
+    public List<GameObject> breakBlockEnemies = new List<GameObject>();
+    public List<GameObject> fallBlocks = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -35,6 +37,18 @@ public class WorldObjectLists : MonoBehaviour
         foreach (GameObject tempBlock in findTempBlocks)
         {
             tempBlocks.Add(tempBlock);
+        }
+
+        GameObject[] findBreakEnemies = GameObject.FindGameObjectsWithTag("BreakBlockEnemy");
+        foreach (GameObject breakEnemy in findBreakEnemies)
+        {
+            breakBlockEnemies.Add(breakEnemy);
+        }
+
+        GameObject[] findFallingBlocks = GameObject.FindGameObjectsWithTag("FallingBlock");
+        foreach (GameObject fallBlock in findFallingBlocks)
+        {
+            fallBlocks.Add(fallBlock);
         }
     }
 

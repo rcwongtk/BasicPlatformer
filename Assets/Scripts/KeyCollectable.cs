@@ -13,15 +13,21 @@ public class KeyCollectable : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            keysCollected++;
-            Debug.Log(keysCollected);
+            if(keysCollected < 3)
+            {
+                keysCollected++;
+                Debug.Log(keysCollected);
+
+                if (tempBlock != null)
+                {
+                    tempBlock.GetComponent<TempBlock>().keyCounter++;
+                }
+            }
+
             gameObject.SetActive(false);
             storeForSpawn.Add(gameObject);
 
-            if (tempBlock != null)
-            {
-                tempBlock.GetComponent<TempBlock>().keyCounter++;
-        }
+
 
         }
 

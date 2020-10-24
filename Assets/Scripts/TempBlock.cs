@@ -19,6 +19,7 @@ public class TempBlock : MonoBehaviour
         {
             gameObject.GetComponent<MeshRenderer>().enabled = false;
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            keyCounter = 0;
         }
     }
 
