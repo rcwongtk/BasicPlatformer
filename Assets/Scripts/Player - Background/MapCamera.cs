@@ -5,6 +5,7 @@ using UnityEngine;
 public class MapCamera : MonoBehaviour
 {
     private Controller2D target;
+    public GameObject thePlayer;
     public float verticalOffset;
     public Vector2 focusAreaSize;
 
@@ -28,7 +29,7 @@ public class MapCamera : MonoBehaviour
         }
 
         // Once a focus area is created, moves it to the character
-        mapFocusArea.Update(target.characterCollider.bounds, target);
+        mapFocusArea.Update(target.characterCollider.bounds, target, thePlayer);
 
         Vector2 focusPosition = mapFocusArea.centreAreaToScreen + Vector2.up * verticalOffset;
 
@@ -75,7 +76,7 @@ public class MapCamera : MonoBehaviour
             centreAreaToScreen = new Vector2((left + right) / 2, (top + bottom) / 2);
         }
 
-        public void Update(Bounds targetBounds, Controller2D target)
+        public void Update(Bounds targetBounds, Controller2D target, GameObject thePlayer)
         {
 
             // If character enters the left or right boundary of the screen it will toggle to the next screen.
@@ -90,7 +91,9 @@ public class MapCamera : MonoBehaviour
                     Debug.Log("Character Left Side Screen");
                     leftSideMapBounds = true;
                     // Change the first vector depending on the width of the character... to lazy to make it scale dependant
-                    target.Move(new Vector2(-1, 0), new Vector2(-1, 0), false);
+                    Vector3 targetPosition = target.gameObject.transform.position;
+                    //targetPosition = new Vector3(targetPosition.x -1 , targetPosition.y -1);
+                    //target.Move(new Vector2(-1, 0), new Vector2(-1, 0), false);
                 }
                 
             }
@@ -102,7 +105,8 @@ public class MapCamera : MonoBehaviour
                     Debug.Log("Character Right Side Screen");
                     rightSideMapBounds = true;
                     // Change the first vector depending on the width of the character... to lazy to make it scale dependant
-                    target.Move(new Vector2(1, 0), new Vector2(1, 0), false);
+                    //thePlayer.transform.position = new Vector3(thePlayer.transform.position.x + 1, thePlayer.transform.position.y + 1);
+                    //target.Move(new Vector2(3, 0), new Vector2(3, 0), false);
                 }
                     
             }
@@ -125,7 +129,7 @@ public class MapCamera : MonoBehaviour
                     Debug.Log("Character Bottom Side Screen");
                     bottomSideMapBounds = true;
                     // Change the first vector depending on the width of the character... to lazy to make it scale dependant
-                    target.Move(new Vector2(0, -1), new Vector2(0, -1), false);
+                    //target.Move(new Vector2(0, -1), new Vector2(0, -1), false);
                 }
                 
             }
@@ -139,7 +143,7 @@ public class MapCamera : MonoBehaviour
                     Debug.Log("Character Top Side Screen");
                     topSideMapBounds = true;
                     // Change the first vector depending on the width of the character... to lazy to make it scale dependant
-                    target.Move(new Vector2(0, 1), new Vector2(0, 1), false);
+                    //target.Move(new Vector2(0, 1), new Vector2(0, 1), false);
                 }
             }
             else

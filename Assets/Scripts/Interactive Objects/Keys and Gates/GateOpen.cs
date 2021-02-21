@@ -8,6 +8,8 @@ public class GateOpen : MonoBehaviour
     int layerMask = 1 << 8; //Layer 8
     Vector3 gateSize;
 
+    // Gameobject represents location player will teleport to for next room
+    public GameObject teleportSpot;
 
     void Start()
     {
@@ -42,6 +44,9 @@ public class GateOpen : MonoBehaviour
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;
 
                 gateDoorPassed = true;
+
+                // Move player to teleport spot
+                detectedObjects[0].transform.position = teleportSpot.transform.position;
             }
         }
     }
