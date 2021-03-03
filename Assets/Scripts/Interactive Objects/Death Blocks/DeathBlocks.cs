@@ -67,7 +67,10 @@ public class DeathBlocks : MonoBehaviour
                 {
                     breakEnemy.GetComponent<MeshRenderer>().enabled = true;
                     breakEnemy.GetComponent<BoxCollider2D>().enabled = true;
-                    breakEnemy.GetComponentInChildren<TextMeshPro>().enabled = true;
+                    if(breakEnemy.transform.childCount > 0)
+                    {
+                        breakEnemy.GetComponentInChildren<TextMeshPro>().enabled = true;
+                    }
                     BreakPowerBlock.breakBlockCounter = 0;
                 }
 
